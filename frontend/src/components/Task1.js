@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { generatePassword } from "../actions/generalAction";
 
 const Task1 = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     
     const [password, setPassword] = useState('');
 
