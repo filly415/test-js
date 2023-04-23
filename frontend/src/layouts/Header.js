@@ -40,15 +40,16 @@ class Header extends Component {
       <Nav className="ml-auto" navbar>
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
-            {user.name}
+            {user.name}Click Here!
           </DropdownToggle>
           <DropdownMenu right>
-            <DropdownItem onClick={this.onLogoutClick.bind(this)}>
-              Logout
+            <DropdownItem onClick={this.task1Click.bind(this)}>
+              task1
             </DropdownItem>
-            <DropdownItem>Option 2</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>Reset</DropdownItem>
+            <DropdownItem>task2</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>task3</DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>
@@ -56,14 +57,8 @@ class Header extends Component {
     const guestLinks = (
       <Nav className="ml-auto" navbar>
         <NavItem>
-          <NavLink href="/register">Register</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/login">Login</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="https://github.com/riteshsingh1/mern-starter">
-            GitHub
+          <NavLink href="/task1">
+            task1
           </NavLink>
         </NavItem>
       </Nav>
@@ -74,7 +69,7 @@ class Header extends Component {
           <NavbarBrand href="/">Mern Starter</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            {isAuthenticated ? authLinks : guestLinks}
+            { authLinks }
           </Collapse>
         </Navbar>
       </div>
