@@ -1,15 +1,22 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import { generatePassword } from "../actions/generalAction";
 
-class Task1 extends Component {
-  render() {
+const Task1 = () => {
+    const dispatch = useDispatch()
+    
+    const [password, setPassword] = useState('');
+
+    const handleGeneratePassword = () => {
+
+    };
+
     return (
-      <div className="container h-100">
-        <div className="row h-100v justify-content-center align-items-center title-text">
-          hi
+        <div className='text-center py-5'>
+            <h2 className='pb-4'>Password Generator & Checker</h2>
+            <button className='btn btn-primary' onClick={()=>handleGeneratePassword()} >Generate Password</button>
         </div>
-      </div>
     );
-  }
-}
+};
 
 export default Task1;
