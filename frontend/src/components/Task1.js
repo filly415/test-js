@@ -1,22 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux'
-import { generatePassword } from "../actions/generalAction";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
-const Task1 = () => {
-    // const dispatch = useDispatch()
-    
-    const [password, setPassword] = useState('');
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormFeedback
+} from "reactstrap";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
 
-    const handleGeneratePassword = () => {
-
+class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      confirm_password: "",
+      errors: {}
     };
 
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  render() {
+    const { errors } = this.state;
     return (
-        <div className='text-center py-5'>
-            <h2 className='pb-4'>Password Generator & Checker</h2>
-            <button className='btn btn-primary' onClick={()=>handleGeneratePassword()} >Generate Password</button>
-        </div>
+      <div className="container h-100">
+        
+      </div>
     );
+  }
+}
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
-export default Task1;
+const mapStateToProps = state => ({
+  
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));
